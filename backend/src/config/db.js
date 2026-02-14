@@ -1,3 +1,5 @@
+import { ENV } from "./env.js";
+
 export const conectDB = async () => {
     try {
         console.log("DB_URL from ENV:", ENV.DB_URL);
