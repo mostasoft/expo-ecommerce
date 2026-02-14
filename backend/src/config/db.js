@@ -1,15 +1,13 @@
-
-import mongoose from "mongoose";
-import { ENV } from "./env.js";
-
-
-export const conectDB = async()=>{
+export const conectDB = async () => {
     try {
-        const connection = await mongoose.connect(ENV.DB_URL)
-        console.log(`Connected to the MONGODB: ${connection.connection.host}`)
+        console.log("DB_URL from ENV:", ENV.DB_URL);
+
+        const connection = await mongoose.connect(ENV.DB_URL);
+
+        console.log(`Connected to the MONGODB: ${connection.connection.host}`);
 
     } catch (error) {
-        console.error("database connection error")
-        process.exit(1)
+        console.error("database connection error:", error.message);
+        process.exit(1);
     }
-}
+};
